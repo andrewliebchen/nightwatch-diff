@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-selenium-webdriver": "~0.2.422"
+    "grunt-selenium-webdriver": "~0.2.422",
+    "extfs": "0.0.7"
   }
 }
