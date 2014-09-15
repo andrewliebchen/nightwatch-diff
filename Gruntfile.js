@@ -51,9 +51,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nightwatch');
   grunt.loadNpmTasks('grunt-selenium-webdriver');
 
-  grunt.registerTask('default', [
+  var group = grunt.option('group');
+  var testGroup = group ? ':' + group : '';
+
+  grunt.registerTask('test', [
     'selenium_start',
-    'nightwatch',
+    'nightwatch' + testGroup,
     'selenium_stop'
   ]);
 };
