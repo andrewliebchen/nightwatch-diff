@@ -1,3 +1,5 @@
 reports/
 node_modules/
+screenshots/test
+screenshots/diff
 .DS_Store

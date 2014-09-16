@@ -38,18 +38,22 @@ module.exports = function(grunt) {
         }
       },
 
-      // test groups
+      // Test groups
       google : {
         "src_folders" : ["./tests/google"]
-      },
-      yahoo : {
-        "src_folders" : ["./tests/yahoo"]
+      }
+    },
+
+    shell: {
+      imagemagick: {
+        command: 'compare screenshots/test/1_test.png screenshots/base/1_base.png -compose src screenshots/diff/1.png',
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-nightwatch');
   grunt.loadNpmTasks('grunt-selenium-webdriver');
+  grunt.loadNpmTasks('grunt-shell');
 
   var group = grunt.option('group');
   var testGroup = group ? ':' + group : '';
@@ -59,4 +63,11 @@ module.exports = function(grunt) {
     'nightwatch' + testGroup,
     'selenium_stop'
   ]);
+
+  // Need to get all the images in the screenshot folders to feed into this command, for example
+  // grunt.registerTask('d', function (greeting) {
+  //   grunt.task.run('shell:hello:' + greeting);
+  // });
+
+  grunt.registerTask('compare', ['shell:imagemagick']);
 };
