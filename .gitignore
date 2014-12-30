@@ -1,4 +1,6 @@
 reports/
 node_modules/
 selenium/
+test/screenshots/diffs/*
+test/screenshots/results/*
 .DS_Store

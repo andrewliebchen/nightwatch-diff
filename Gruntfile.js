@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     nightwatch: {
       options: {
-        "src_folders" : ["./tests"],
+        "src_folders" : ["./test"],
         "output_folder" : "./reports",
         "custom_commands_path" : "./commands",
         "custom_assertions_path" : "./assertions",
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
             "chrome_driver": "",
             "ie_driver": "",
             "screenshots" : {
-              "enabled" : false,
+              "enabled" : true,
               "path" : ""
             },
             "desiredCapabilities": {
