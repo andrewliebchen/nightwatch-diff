@@ -1,5 +1,4 @@
 reports/
 node_modules/
-screenshots/test
-screenshots/diff
+selenium/
 .DS_Store

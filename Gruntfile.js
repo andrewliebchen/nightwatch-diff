@@ -4,8 +4,8 @@ module.exports = function(grunt) {
       options: {
         "src_folders" : ["./tests"],
         "output_folder" : "./reports",
-        "custom_commands_path" : "",
-        "custom_assertions_path" : "",
+        "custom_commands_path" : "./commands",
+        "custom_assertions_path" : "./assertions",
         "globals_path" : "",
 
         "selenium" : {
@@ -36,38 +36,12 @@ module.exports = function(grunt) {
             }
           }
         }
-      },
-
-      // Test groups
-      google : {
-        "src_folders" : ["./tests/google"]
-      }
-    },
-
-    shell: {
-      imagemagick: {
-        command: 'compare screenshots/test/1_test.png screenshots/base/1_base.png -compose src screenshots/diff/1.png',
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-nightwatch');
   grunt.loadNpmTasks('grunt-selenium-webdriver');
-  grunt.loadNpmTasks('grunt-shell');
 
-  var group = grunt.option('group');
-  var testGroup = group ? ':' + group : '';
-
-  grunt.registerTask('test', [
-    'selenium_start',
-    'nightwatch' + testGroup,
-    'selenium_stop'
-  ]);
-
-  // Need to get all the images in the screenshot folders to feed into this command, for example
-  // grunt.registerTask('d', function (greeting) {
-  //   grunt.task.run('shell:hello:' + greeting);
-  // });
-
-  grunt.registerTask('compare', ['shell:imagemagick']);
+  grunt.registerTask('default', ['selenium_start', 'nightwatch', 'selenium_stop']);
 };
