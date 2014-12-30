@@ -18,12 +18,9 @@
     "test": "node ./server.js & ./node_modules/.bin/nightwatch"
   },
   "devDependencies": {
-    "extfs": "0.0.7",
     "grunt": "~0.4.5",
     "grunt-nightwatch": "^0.3.1",
     "grunt-selenium-webdriver": "~0.2.422",
-    "grunt-shell": "~1.1.1",
-    "resemble": "^1.1.0",
-    "selenium-webdriver": "^2.44.0"
+    "resemble": "^1.1.0"
   }
 }
